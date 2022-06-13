@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/upload-artifact@v1
     - name: Build docker image
-    - run: docker build -t docker-react -f Dockerfile.dev .
+      run: docker build -t docker-react -f Dockerfile.dev .
     - with:
       name: docker-react
       path: docker-react:latest
@@ -23,4 +23,4 @@ jobs:
     steps:
     - uses: actions/download-artifact@v1
     - name: Test image
-    - run: docker run docker-react npm run test -- --coverage
+      run: docker run docker-react npm run test -- --coverage
