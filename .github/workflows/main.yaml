@@ -12,10 +12,11 @@ jobs:
     steps:
     - uses: actions/upload-artifact@v1
     - name: Build docker image
-      run: docker build -t docker-react -f Dockerfile.dev .
     - with:
-      name: docker-react
-      path: docker-react:latest
+        name: docker-react
+        path: docker-react:latest
+      run: docker build -t docker-react -f Dockerfile.dev .
+    
       
   test:
     runs-on: ubuntu-latest
