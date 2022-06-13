@@ -11,10 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    
     - name: Build image
       run: docker build -t docker-react -f Dockerfile.dev .
 
     - name: Test image
-      run: |
-        docker build -t docker-react -f Dockerfile.dev .
-        docker run docker-react npm run test -- --coverage
+      run: docker run docker-react npm run test -- --coverage
