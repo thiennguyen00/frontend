@@ -10,9 +10,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/upload-artifact@v1
-    - name: Build docker image
-      run: docker build -t docker-react -f Dockerfile.dev .
+    - uses: actions/checkout@v2
+    - run: docker build -t docker-react -f Dockerfile.dev .
+      with:
+        name: docker-react
+        path: docker-react
     
       
   # test:
