@@ -9,11 +9,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    outputs: 
-      docker-react: ${{ steps.build.docker-react }}
     steps:
     - id: build
     - uses: actions/checkout@v3
     - name: Build the Docker image
-    - run: docker build -t docker-react -f Dockerfile.dev .
-    - run: docker run docker-react npm run test -- --coverage 
+    - run: | 
+      docker build -t docker-react -f Dockerfile.dev .
+      docker run docker-react npm run test -- --coverage 
