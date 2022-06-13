@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: docker build -t docker-react -f Dockerfile.dev .
-      with:
+    - with:
         name: docker-react
         path: docker-react
     
