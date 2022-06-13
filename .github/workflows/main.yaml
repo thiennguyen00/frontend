@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - run: docker build -t docker-react -f Dockerfile.dev .
+    - name: Build image
+      run: docker build -t docker-react -f Dockerfile.dev .
     - with:
         name: docker-react
         path: docker-react
