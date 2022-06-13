@@ -1,0 +1,20 @@
+FROM node:alpine
+
+#set working dir
+WORKDIR '/app'
+
+#set permission for node_moduels
+# RUN mkdir -p /app/node_modules
+# RUN chown node:node /app/node_modules
+
+#install dependecies
+COPY package.json .
+RUN npm install
+
+COPY . .
+
+#set permission
+RUN chown -R node /app/node_modules
+USER node
+
+CMD ["npm", "run", "start"]
